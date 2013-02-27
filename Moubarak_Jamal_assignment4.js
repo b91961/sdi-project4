@@ -1,7 +1,7 @@
 // alert("JavaScript works!");
 
 // Jamal Moubarak
-// Project 3
+// Project 4
 // SDI 1302
 
 // String
@@ -26,13 +26,19 @@ usNumber("123-456-7890");
 
 // 2: Does a string follow an aaa@bbb.ccc pattern like an email address?
 // Variables
-
-
+var email = function (testEmail) {
+var emailAddress = testEmail;
+var validateEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/;
 // Expression
-
-
+	if (validateEmail.test(emailAddress)) {
+		console.log("This is a valid email address!");
+	} else {
+		return console.log("This is not a valid email address!");
+	}
+}
 // Solution
 console.log("Question 2: ");
+email("aaa@bbb.ccc");
 
 // 3: Is the string a URL? (Does it start with http: or https:
 // Variables
