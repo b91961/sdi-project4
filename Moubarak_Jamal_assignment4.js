@@ -109,7 +109,15 @@ var myLibrary = function() {
 			return true;
 	}
 }
-		
+	
+	// Find the number of hours or days difference between two dates.
+	var checkDate = function(testDate) {
+    var startDate = testDate;
+    var today = new Date(2013,28,02);
+    var one_day = 24 * 60 * 60 * 1000;
+    	return(Math.ceil((today.getTime() - startDate.getTime()) / (one_day)) + " days have gone by since " + 			testDate);
+}
+
 	// Test Sample
 	var checkNumeric = function(val) {
 		
@@ -138,6 +146,7 @@ var myLibrary = function() {
 		"sepReplace": sepReplace,
 		"formatNumber": formatNumber,
 		"fuzzyMatch": fuzzyMatch,
+		"checkDate": checkDate,
 		"checkNumeric": checkNumeric,
 		"areYouJamal": areYouJamal
 	}
@@ -153,6 +162,7 @@ console.log(newLib.toProperCase("This capitalizes the first letter of every word
 console.log(newLib.sepReplace("a,b,c,d,e,f,g"));
 console.log("$" + newLib.formatNumber("12.345678",2));
 console.log("Is this a fuzzy match? " + newLib.fuzzyMatch(50,10));
+console.log(newLib.checkDate(new Date(1979,07,07)));
 console.log("Is this a number? " + newLib.checkNumeric("1"));
 console.log("Is this Jamal? " + newLib.areYouJamal("John"));
 
