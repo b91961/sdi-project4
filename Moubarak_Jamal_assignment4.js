@@ -123,24 +123,26 @@ var myLibrary = function() {
 		return Number(num);
 }
 	
-	// Test Sample
-	var checkNumeric = function(val) {
-		
-		if(isNaN(val)){
-			return false;
+	// Check Arrays
+	// Find the smallest value in an array that is greater than a given number.
+	var getValues = function (array,num) {
+		array.sort(function(a,b){return a-b;});
+		if (num >= array[0] && num < array[array.length-1]) {
+			array.push(num);
+			array.sort(function(a,b){return a-b;});
+			var result = array[array.lastIndexOf(num) + 1];
+			return result;
 		} else {
-			return true;
+			return null;
 		}
-	}
-
-	// NAME FUNCTION
-	// Test Sample
-	var areYouJamal = function(val) {
-		
-		var name = (val === "Jamal");
-		return name;
-	}
-
+}	
+	
+	
+	
+	
+	
+	
+	
 	// RETURN OBJECT
 	return {
 		"usNumber": usNumber,
@@ -153,8 +155,7 @@ var myLibrary = function() {
 		"fuzzyMatch": fuzzyMatch,
 		"checkDate": checkDate,
 		"stringNumber": stringNumber,
-		"checkNumeric": checkNumeric,
-		"areYouJamal": areYouJamal
+		"getValues": getValues
 	}
 
 }
@@ -170,8 +171,7 @@ console.log("$" + newLib.formatNumber("12.345678",2));
 console.log("Is this a fuzzy match? " + newLib.fuzzyMatch(50,10));
 console.log(newLib.checkDate(new Date(1979,07,07)));
 console.log("My number is " + newLib.stringNumber("42"));
-console.log("Is this a number? " + newLib.checkNumeric("1"));
-console.log("Is this Jamal? " + newLib.areYouJamal("John"));
+console.log(newLib.getValues([5,8,4,9,2,3,1],7));
 
 
 
