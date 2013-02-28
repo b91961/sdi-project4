@@ -45,15 +45,16 @@ var myLibrary = function() {
 }
 
 	// Title-case a string
-	var titleCase = function toPascalCase(str) {
+	var titleCase = function(str) {
     var arr = str.split(/\s|_/);
     for(var i=0,l=arr.length; i<l; i++) {
         arr[i] = arr[i].substr(0,1).toUpperCase() + 
                  (arr[i].length > 1 ? arr[i].substr(1).toLowerCase() : "");
     }
-    return arr.join(" ");
+        return arr.join(" ");
 }
-/*	// Was running some tests that I couldn't get to work. ALL CAPS
+/*	
+	// Was running some tests that I couldn't get to work. ALL CAPS
 	var toProperCase = function(str) {
 	var results = [];
 		for (var i=0; i < str.length; i++) {
@@ -62,16 +63,25 @@ var myLibrary = function() {
   }
   return results.join(" ");
 };
-	// Was running some tests that I couldn't get to work. Displays Original and Answer.
-	var toProperCase = function(string) {
-	var aStr = string.split(" ");
-	var arr = [string];
-		for (str in aStr) {
-        	arr.push(aStr[str].charAt(0).toUpperCase() + aStr[str].slice(1));    }
-        return arr.join(" ");
+*/	
+	// I can get this one to capital first letter in each word but I feel my other one works better.
+	var toProperCase = function(str) {
+	var splitStr = str.split(" ");
+	var results = "";
+	for (var i = 0, j = splitStr.length; i < j; i++) {
+			var splitNew = splitStr[i].replace(splitStr[i].charAt(0),(splitStr[i].charAt(0)).toUpperCase());
+			results = results.concat(splitNew + " ");
+		};
+		return results;
 }
-*/
 
+	// Return a string with the first separator changed to the second.
+	var sepReplace = function(str) {
+    var list = str.split(",");
+    return list.join("/");
+}
+	
+	
 	// CHECK NUMERIC FUNCTION
 	var checkNumeric = function(val) {
 		
@@ -91,13 +101,14 @@ var myLibrary = function() {
 
 	// RETURN OBJECT
 	return {
-		"checkNumeric": checkNumeric,
 		"usNumber": usNumber,
-		"areYouJamal": areYouJamal,
 		"email": email,
 		"url": url,
 		"titleCase": titleCase,
-		// "toProperCase": toProperCase
+		"toProperCase": toProperCase,
+		"sepReplace": sepReplace,
+		"checkNumeric": checkNumeric,
+		"areYouJamal": areYouJamal
 	}
 
 }
@@ -106,13 +117,11 @@ var newLib = new myLibrary();
 
 console.log("Is this a valid US phone number format? " + newLib.usNumber("123-456-7890"));
 console.log("Is this a valid email address format? " + newLib.email("aaa@bbb.ccc"));
-console.log("Does this URL start with a http: or https:? " + newLib.url("https://www.fullsail.com"));
-console.log(newLib.titleCase("mY nAme_is jaMal"));
+console.log("Does this URL start with a http: or https:? " + newLib.url("https://www.fullsail.com")); console.log(newLib.titleCase("fiRsT_lEttEr_cApItAl,_thE_reSt loWerCase_anD_rePLacE_underSCOrE with_space."));
+console.log(newLib.toProperCase("This capitalizes the first letter of every word in a string."));
+console.log(newLib.sepReplace("a,b,c,d,e,f,g"));
 console.log("Is this a number? " + newLib.checkNumeric("1"));
 console.log("Is this Jamal? " + newLib.areYouJamal("John"));
-// console.log(newLib.toProperCase("my name is jamal"));
-
-
 
 
 
