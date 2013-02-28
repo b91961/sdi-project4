@@ -1,4 +1,4 @@
-// alert("Hello Mr. Lewis!");
+alert("Hello Mr. Lewis!");
 // alert("JavaScript works!");
 
 // Jamal Moubarak
@@ -118,6 +118,11 @@ var myLibrary = function() {
     	return(Math.ceil((today.getTime() - startDate.getTime()) / (one_day)) + " days have gone by since " + 			testDate);
 }
 
+	// Given a string version of a number such as "42", return the value as an actual number, such as 42.
+	 var stringNumber = function (num) {
+		return Number(num);
+}
+	
 	// Test Sample
 	var checkNumeric = function(val) {
 		
@@ -147,6 +152,7 @@ var myLibrary = function() {
 		"formatNumber": formatNumber,
 		"fuzzyMatch": fuzzyMatch,
 		"checkDate": checkDate,
+		"stringNumber": stringNumber,
 		"checkNumeric": checkNumeric,
 		"areYouJamal": areYouJamal
 	}
@@ -163,6 +169,7 @@ console.log(newLib.sepReplace("a,b,c,d,e,f,g"));
 console.log("$" + newLib.formatNumber("12.345678",2));
 console.log("Is this a fuzzy match? " + newLib.fuzzyMatch(50,10));
 console.log(newLib.checkDate(new Date(1979,07,07)));
+console.log("My number is " + newLib.stringNumber("42"));
 console.log("Is this a number? " + newLib.checkNumeric("1"));
 console.log("Is this Jamal? " + newLib.areYouJamal("John"));
 
