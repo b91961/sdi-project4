@@ -1,3 +1,4 @@
+alert("Hello Mr. Lewis!");
 // alert("JavaScript works!");
 
 // Jamal Moubarak
@@ -83,6 +84,22 @@ var myLibrary = function() {
 	
 	
 	// CHECK NUMERIC FUNCTION
+	// Format a number to use a specific number of decimal places as for money.
+	var formatNumber = function(num, decplaces) {
+    var	testnum = (num);
+    	if (!isNaN(num)) {
+        	var str = "" + Math.round (eval(num) * Math.pow(10,decplaces));
+        if (str.indexOf("e") != -1) {
+            return "Out of Range";
+        } while (str.length <= decplaces) {
+	            str = "0" + str;
+	    } var decpoint = str.length - decplaces;
+	    	return str.substring(0,decpoint) + "." + str.substring(decpoint,str.length);
+	    } else {
+		    return "NaN";
+    }
+}	
+	// Test Sample
 	var checkNumeric = function(val) {
 		
 		if(isNaN(val)){
@@ -93,6 +110,7 @@ var myLibrary = function() {
 	}
 
 	// NAME FUNCTION
+	// Test Sample
 	var areYouJamal = function(val) {
 		
 		var name = (val === "Jamal");
@@ -107,6 +125,7 @@ var myLibrary = function() {
 		"titleCase": titleCase,
 		"toProperCase": toProperCase,
 		"sepReplace": sepReplace,
+		"formatNumber": formatNumber,
 		"checkNumeric": checkNumeric,
 		"areYouJamal": areYouJamal
 	}
@@ -120,6 +139,7 @@ console.log("Is this a valid email address format? " + newLib.email("aaa@bbb.ccc
 console.log("Does this URL start with a http: or https:? " + newLib.url("https://www.fullsail.com")); console.log(newLib.titleCase("fiRsT_lEttEr_cApItAl,_thE_reSt loWerCase_anD_rePLacE_underSCOrE with_space."));
 console.log(newLib.toProperCase("This capitalizes the first letter of every word in a string."));
 console.log(newLib.sepReplace("a,b,c,d,e,f,g"));
+console.log("$" + newLib.formatNumber("12.345678",2));
 console.log("Is this a number? " + newLib.checkNumeric("1"));
 console.log("Is this Jamal? " + newLib.areYouJamal("John"));
 
