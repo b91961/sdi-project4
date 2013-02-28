@@ -44,6 +44,34 @@ var myLibrary = function() {
 		return validateUrl.test(testUrl);
 }
 
+	// Title-case a string
+	var titleCase = function toPascalCase(str) {
+    var arr = str.split(/\s|_/);
+    for(var i=0,l=arr.length; i<l; i++) {
+        arr[i] = arr[i].substr(0,1).toUpperCase() + 
+                 (arr[i].length > 1 ? arr[i].substr(1).toLowerCase() : "");
+    }
+    return arr.join(" ");
+}
+/*	// Was running some tests that I couldn't get to work. ALL CAPS
+	var toProperCase = function(str) {
+	var results = [];
+		for (var i=0; i < str.length; i++) {
+			var letter = str[i].charAt(0).toUpperCase();
+     results.push(letter + str[i].slice(1));
+  }
+  return results.join(" ");
+};
+	// Was running some tests that I couldn't get to work. Displays Original and Answer.
+	var toProperCase = function(string) {
+	var aStr = string.split(" ");
+	var arr = [string];
+		for (str in aStr) {
+        	arr.push(aStr[str].charAt(0).toUpperCase() + aStr[str].slice(1));    }
+        return arr.join(" ");
+}
+*/
+
 	// CHECK NUMERIC FUNCTION
 	var checkNumeric = function(val) {
 		
@@ -67,7 +95,9 @@ var myLibrary = function() {
 		"usNumber": usNumber,
 		"areYouJamal": areYouJamal,
 		"email": email,
-		"url": url
+		"url": url,
+		"titleCase": titleCase,
+		// "toProperCase": toProperCase
 	}
 
 }
@@ -77,5 +107,12 @@ var newLib = new myLibrary();
 console.log("Is this a valid US phone number format? " + newLib.usNumber("123-456-7890"));
 console.log("Is this a valid email address format? " + newLib.email("aaa@bbb.ccc"));
 console.log("Does this URL start with a http: or https:? " + newLib.url("https://www.fullsail.com"));
+console.log(newLib.titleCase("mY nAme_is jaMal"));
 console.log("Is this a number? " + newLib.checkNumeric("1"));
 console.log("Is this Jamal? " + newLib.areYouJamal("John"));
+// console.log(newLib.toProperCase("my name is jamal"));
+
+
+
+
+
