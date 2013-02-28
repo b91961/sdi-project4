@@ -1,4 +1,4 @@
-alert("Hello Mr. Lewis!");
+// alert("Hello Mr. Lewis!");
 // alert("JavaScript works!");
 
 // Jamal Moubarak
@@ -98,7 +98,18 @@ var myLibrary = function() {
 	    } else {
 		    return "NaN";
     }
-}	
+}
+
+	// Fuzzy-match a number: is the number above or below a number within a certain percent?
+	var fuzzyMatch = function (num,compareNum,percent) {
+	var percentage = (num/compareNum) * 100;
+		if ((num >= compareNum && percentage >= percent) || (num < compareNum && percentage < percent)) {
+			return false;
+		} else {
+			return true;
+	}
+}
+		
 	// Test Sample
 	var checkNumeric = function(val) {
 		
@@ -126,6 +137,7 @@ var myLibrary = function() {
 		"toProperCase": toProperCase,
 		"sepReplace": sepReplace,
 		"formatNumber": formatNumber,
+		"fuzzyMatch": fuzzyMatch,
 		"checkNumeric": checkNumeric,
 		"areYouJamal": areYouJamal
 	}
@@ -140,6 +152,7 @@ console.log("Does this URL start with a http: or https:? " + newLib.url("https:/
 console.log(newLib.toProperCase("This capitalizes the first letter of every word in a string."));
 console.log(newLib.sepReplace("a,b,c,d,e,f,g"));
 console.log("$" + newLib.formatNumber("12.345678",2));
+console.log("Is this a fuzzy match? " + newLib.fuzzyMatch(50,10));
 console.log("Is this a number? " + newLib.checkNumeric("1"));
 console.log("Is this Jamal? " + newLib.areYouJamal("John"));
 
