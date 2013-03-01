@@ -18,7 +18,7 @@ var myLibrary = function() {
 		if (validateNumber.test(phoneNumber)) {
 			return true;
 		} else {
-			return false;
+			return false; // Makeup Credit: missing boolean logic project 2 
 		}
 }
 		/*  Was running some tests that I couldn't get to work.		
@@ -35,12 +35,12 @@ var myLibrary = function() {
 		if (validateEmail.test(emailAddress)) {
 			return true;
 		} else {
-			return false;
+			return false; // Makeup Credit: missing most of my returns project 3
 		}
 }
 
 	// Validate URL for http: and https:
-	var url = function(testUrl) {
+	var url = function(testUrl) { // Makeup Credit: missing most of the methods project 3
 	var validateUrl = /^(?:http|https):/;
 		return validateUrl.test(testUrl);
 }
@@ -48,7 +48,7 @@ var myLibrary = function() {
 	// Title-case a string
 	var titleCase = function(str) {
     var arr = str.split(/\s|_/);
-    for(var i=0,l=arr.length; i<l; i++) {
+    for(var i=0,l=arr.length; i<l; i++) { // Makeup Credit: missing for loop project 2
         arr[i] = arr[i].substr(0,1).toUpperCase() + 
                  (arr[i].length > 1 ? arr[i].substr(1).toLowerCase() : "");
     }
@@ -69,7 +69,7 @@ var myLibrary = function() {
 	var toProperCase = function(str) {
 	var splitStr = str.split(" ");
 	var results = "";
-	for (var i = 0, j = splitStr.length; i < j; i++) {
+	for (var i = 0, j = splitStr.length; i < j; i++) { 
 			var splitNew = splitStr[i].replace(splitStr[i].charAt(0),(splitStr[i].charAt(0)).toUpperCase());
 			results = results.concat(splitNew + " ");
 		};
@@ -137,7 +137,7 @@ var myLibrary = function() {
 }	
 	
 	// Find the total value of just the numbers in an array, even if some of the items are not numbers.
-	var numArray = function(array) {
+	var numArray = function(array) {  // Makeup Credit: missing array project 2
 	var total = 0;
 		for (var i = 0, j = array.length; i < j; i++) {
 			if (array[i]/1 === array[i]) {
@@ -148,7 +148,7 @@ var myLibrary = function() {
 
 	// Given an array of objects and the name of a key, return the array sorted by the value.
 	var sortKeyArray = function(array,givenKey) {
-		return (array.sort(function(a,b){return a[givenKey] - b[givenKey];}));
+		return (array.sort(function(a,b){return a[givenKey] - b[givenKey];})); // Makeup Credit: missing most arguments project 3
 }
 	
 	// RETURN OBJECT
