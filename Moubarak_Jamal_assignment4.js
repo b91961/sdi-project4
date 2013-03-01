@@ -54,8 +54,8 @@ var myLibrary = function() {
     }
         return arr.join(" ");
 }
-/*	
-	// Was running some tests that I couldn't get to work. ALL CAPS
+
+/*	// Was running some tests that I couldn't get to work. ALL CAPS
 	var toProperCase = function(str) {
 	var results = [];
 		for (var i=0; i < str.length; i++) {
@@ -63,8 +63,8 @@ var myLibrary = function() {
      results.push(letter + str[i].slice(1));
   }
   return results.join(" ");
-};
-*/	
+}; */
+	
 	// I can get this one to capital first letter in each word but I feel my other one works better.
 	var toProperCase = function(str) {
 	var splitStr = str.split(" ");
@@ -81,8 +81,7 @@ var myLibrary = function() {
     var list = str.split(",");
     return list.join("/");
 }
-	
-	
+		
 	// CHECK NUMERIC FUNCTION
 	// Format a number to use a specific number of decimal places as for money.
 	var formatNumber = function(num, decplaces) {
@@ -101,7 +100,7 @@ var myLibrary = function() {
 }
 
 	// Fuzzy-match a number: is the number above or below a number within a certain percent?
-	var fuzzyMatch = function (num,compareNum,percent) {
+	var fuzzyMatch = function(num,compareNum,percent) {
 	var percentage = (num/compareNum) * 100;
 		if ((num >= compareNum && percentage >= percent) || (num < compareNum && percentage < percent)) {
 			return false;
@@ -119,13 +118,13 @@ var myLibrary = function() {
 }
 
 	// Given a string version of a number such as "42", return the value as an actual number, such as 42.
-	 var stringNumber = function (num) {
+	 var stringNumber = function(num) {
 		return Number(num);
 }
 	
 	// Check Arrays
 	// Find the smallest value in an array that is greater than a given number.
-	var getValues = function (array,num) {
+	var getValues = function(array,num) {
 		array.sort(function(a,b){return a-b;});
 		if (num >= array[0] && num < array[array.length-1]) {
 			array.push(num);
@@ -138,13 +137,18 @@ var myLibrary = function() {
 }	
 	
 	// Find the total value of just the numbers in an array, even if some of the items are not numbers.
-	var numArray = function (array) {
+	var numArray = function(array) {
 	var total = 0;
 		for (var i = 0, j = array.length; i < j; i++) {
 			if (array[i]/1 === array[i]) {
 				total += array[i];
 	}
 	} return total;
+}
+
+	// Given an array of objects and the name of a key, return the array sorted by the value.
+	var sortKeyArray = function(array,givenKey) {
+		return (array.sort(function(a,b){return a[givenKey] - b[givenKey];}));
 }
 	
 	// RETURN OBJECT
@@ -160,7 +164,8 @@ var myLibrary = function() {
 		"checkDate": checkDate,
 		"stringNumber": stringNumber,
 		"getValues": getValues,
-		"numArray": numArray
+		"numArray": numArray,
+		"sortKeyArray": sortKeyArray
 	}
 
 }
@@ -178,5 +183,5 @@ console.log(newLib.checkDate(new Date(1979,07,07)));
 console.log("My number is " + newLib.stringNumber("42"));
 console.log(newLib.getValues([5,8,4,9,2,3,1],7));
 console.log(newLib.numArray(["Jamal", 33, "Adrianne", 32, "Kaeleb", 5, "Alaina", 3, "Lilah", 3]));
-
+console.log(newLib.sortKeyArray([{a:1},{a:8},{a:7},{a:3},{a:6},{a:2},{a:5},{a:4},{a:9},{a:0}],"a"));
 
