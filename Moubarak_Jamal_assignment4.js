@@ -137,11 +137,15 @@ var myLibrary = function() {
 		}
 }	
 	
-	
-	
-	
-	
-	
+	// Find the total value of just the numbers in an array, even if some of the items are not numbers.
+	var numArray = function (array) {
+	var total = 0;
+		for (var i = 0, j = array.length; i < j; i++) {
+			if (array[i]/1 === array[i]) {
+				total += array[i];
+	}
+	} return total;
+}
 	
 	// RETURN OBJECT
 	return {
@@ -155,7 +159,8 @@ var myLibrary = function() {
 		"fuzzyMatch": fuzzyMatch,
 		"checkDate": checkDate,
 		"stringNumber": stringNumber,
-		"getValues": getValues
+		"getValues": getValues,
+		"numArray": numArray
 	}
 
 }
@@ -172,6 +177,6 @@ console.log("Is this a fuzzy match? " + newLib.fuzzyMatch(50,10));
 console.log(newLib.checkDate(new Date(1979,07,07)));
 console.log("My number is " + newLib.stringNumber("42"));
 console.log(newLib.getValues([5,8,4,9,2,3,1],7));
-
+console.log(newLib.numArray(["Jamal", 33, "Adrianne", 32, "Kaeleb", 5, "Alaina", 3, "Lilah", 3]));
 
 
